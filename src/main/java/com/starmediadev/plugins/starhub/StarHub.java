@@ -1,4 +1,4 @@
-package com.starmediadev.starhub;
+package com.starmediadev.plugins.starhub;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
