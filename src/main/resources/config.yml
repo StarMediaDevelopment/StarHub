@@ -1,0 +1,15 @@
+VoidTeleport:
+  #Void teleport settings
+  Spawn:
+    #Place in which a player is teleported to after falling into the void.
+    X: 0
+    Y: 100
+    Z: 0
+    YAW: 90
+    PITCH: 0
+    WORLD: "world"
+  EnabledWorlds:
+    #List of worlds where VoidTP works.
+    - "world"
+    - "hub"
+    - "spawn"

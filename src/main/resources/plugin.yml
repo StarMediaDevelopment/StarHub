@@ -1,0 +1,8 @@
+name: StarHub
+version: ${project.version}
+main: com.starmediadev.plugins.starhub.StarHub
+api-version: 1.17
+prefix: [ StarHub ]
+load: STARTUP
+authors: [ AloneMusk ]
+description: A hub core 
