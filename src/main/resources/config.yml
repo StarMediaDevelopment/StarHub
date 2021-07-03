@@ -22,3 +22,27 @@ Scoreboard:
     - ""
     - ""
     - ""
+
+Join:
+  Messages:
+    MOTD:
+      - ""
+      - ""
+      - ""
+    StaffMOTD:
+      - ""
+      - ""
+      - ""
+    StaffJoinMessage:
+      - ""
+    PlayerJoinMessage:
+      - ""
+    PrivatePlayerJoinMessage:
+      - ""
+      - ""
+      - ""
+
+Leave:
+  Messages:
+    PlayerLeaveMessage:
+      - ""
