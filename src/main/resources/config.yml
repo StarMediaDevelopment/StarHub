@@ -33,14 +33,12 @@ Join:
       - ""
       - ""
       - ""
-    StaffJoinMessage:
-      - ""
-    PlayerJoinMessage:
-      - ""
-    PrivatePlayerJoinMessage:
-      - ""
-      - ""
-      - ""
+
+    StaffJoinMessage: ""
+    PlayerJoinMessage: ""
+  GameMode: "SURVIVAL"
+  ClearInventory: false
+  TeleportToSpawn: true
 
 Leave:
   Messages:
