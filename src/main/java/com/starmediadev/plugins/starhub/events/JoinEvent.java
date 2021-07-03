@@ -2,7 +2,6 @@ package com.starmediadev.plugins.starhub.events;
 
 import com.starmediadev.plugins.starhub.StarHub;
 import com.starmediadev.plugins.starhub.functions.MessageFunctions;
-import com.starmediadev.plugins.starhub.util.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;

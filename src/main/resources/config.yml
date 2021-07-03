@@ -42,5 +42,4 @@ Join:
 
 Leave:
   Messages:
-    PlayerLeaveMessage:
-      - ""
+    PlayerLeaveMessage: ""
