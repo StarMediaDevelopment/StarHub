@@ -18,6 +18,7 @@ public class JoinEvent implements Listener {
     public JoinEvent(StarHub main) {
         this.main = main;
         this.msg = new MessageFunctions(main);
+        Bukkit.getPluginManager().registerEvents(this, main);
     }
 
     @EventHandler

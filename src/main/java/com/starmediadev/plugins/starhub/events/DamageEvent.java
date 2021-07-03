@@ -16,6 +16,7 @@ public class DamageEvent implements Listener {
 
     public DamageEvent(StarHub main) {
         this.main = main;
+        Bukkit.getPluginManager().registerEvents(this, main);
     }
 
     @EventHandler

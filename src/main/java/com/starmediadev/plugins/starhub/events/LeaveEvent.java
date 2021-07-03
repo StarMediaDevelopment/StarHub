@@ -2,6 +2,7 @@ package com.starmediadev.plugins.starhub.events;
 
 import com.starmediadev.plugins.starhub.StarHub;
 import com.starmediadev.plugins.starhub.util.Util;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,6 +14,7 @@ public class LeaveEvent implements Listener {
 
     public LeaveEvent(StarHub main) {
         this.main = main;
+        Bukkit.getPluginManager().registerEvents(this, main);
     }
 
     @EventHandler
