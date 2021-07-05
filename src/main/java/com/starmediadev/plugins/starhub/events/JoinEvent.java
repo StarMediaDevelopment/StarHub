@@ -28,18 +28,15 @@ public class JoinEvent implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-        if (player.hasPermission("FireCraft.isStaff")) {
-            event.setJoinMessage(main.getConfig().getString("Join.Messages.StaffJoinMessage"));
-            msg.sendMessages(player, "Join.Messages.StaffMOTD");
+        if (!player.hasPlayedBefore()) {
+            join.giveItems(player);
+
             return;
         }
-        event.setJoinMessage(main.getConfig().getString("Join.Messages.PlayerJoinMessage"));
-        msg.sendMessages(player, "Join.Messages.MOTD");
 
-        player.setGameMode(GameMode.valueOf(main.getConfig().getString("Join.GameMode")));
-        if (main.getConfig().getBoolean("Join.ClearInventory")) {
-            player.getInventory().clear();
-        }
+
+        join.giveItems(player);
+
         if (main.getConfig().getBoolean("Join.TeleportToSpawn")) {
             Location spawn = new Location(Bukkit.getWorld(main.getConfig().getString("VoidTeleport.Spawn.WORLD")),
                     main.getConfig().getDouble("VoidTeleport.Spawn.X"), main.getConfig().getDouble("VoidTeleport.Spawn.Y"),
@@ -47,9 +44,20 @@ public class JoinEvent implements Listener {
                     main.getConfig().getInt("VoidTeleport.Spawn.PITCH"));
             player.teleport(spawn);
         }
-
-        join.giveItems(player);
-
+        //
+        player.setGameMode(GameMode.valueOf(main.getConfig().getString("Join.GameMode")));
+        if (main.getConfig().getBoolean("Join.ClearInventory")) {
+            player.getInventory().clear();
+        }
+        //
+        if (player.hasPermission("FireCraft.isStaff")) {
+            event.setJoinMessage(main.getConfig().getString("Join.Messages.StaffJoinMessage"));
+            msg.sendMessages(player, "Join.Messages.StaffMOTD");
+            return;
+        }
+        //
+        event.setJoinMessage(main.getConfig().getString("Join.Messages.PlayerJoinMessage"));
+        msg.sendMessages(player, "Join.Messages.MOTD");
 
     }
 

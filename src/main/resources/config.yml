@@ -42,6 +42,27 @@ Join:
   Items:
     - ""
 
+
+FirstJoin:
+  Messages:
+    MOTD:
+      - ""
+      - ""
+      - ""
+    StaffMOTD:
+      - ""
+      - ""
+      - ""
+
+    StaffJoinMessage: ""
+    PlayerJoinMessage: ""
+  GameMode: "SURVIVAL"
+  ClearInventory: false
+  TeleportToSpawn: true
+  Items:
+    - ""
+
+
 Leave:
   Messages:
     PlayerLeaveMessage: ""
