@@ -1,6 +1,7 @@
 package com.starmediadev.plugins.starhub.events;
 
 import com.starmediadev.plugins.starhub.StarHub;
+import com.starmediadev.plugins.starhub.functions.JoinFunctions;
 import com.starmediadev.plugins.starhub.functions.MessageFunctions;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -14,10 +15,12 @@ public class JoinEvent implements Listener {
 
     private MessageFunctions msg;
     private StarHub main;
+    private JoinFunctions join;
 
     public JoinEvent(StarHub main) {
         this.main = main;
         this.msg = new MessageFunctions(main);
+        this.join = new JoinFunctions(main);
         Bukkit.getPluginManager().registerEvents(this, main);
     }
 
@@ -44,6 +47,8 @@ public class JoinEvent implements Listener {
                     main.getConfig().getInt("VoidTeleport.Spawn.PITCH"));
             player.teleport(spawn);
         }
+
+        join.giveItems(player);
 
 
     }

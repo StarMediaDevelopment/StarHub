@@ -39,6 +39,8 @@ Join:
   GameMode: "SURVIVAL"
   ClearInventory: false
   TeleportToSpawn: true
+  Items:
+    - ""
 
 Leave:
   Messages:
