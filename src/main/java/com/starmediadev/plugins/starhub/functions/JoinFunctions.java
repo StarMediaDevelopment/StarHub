@@ -1,6 +1,7 @@
 package com.starmediadev.plugins.starhub.functions;
 
 import com.starmediadev.plugins.starhub.StarHub;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -19,7 +20,7 @@ public class JoinFunctions {
 
     public void giveItems(Player user, String path) {
         List<String> items = main.getConfig().getStringList(path);
-        if (items.get(0) == null) {
+        if (items.get(0).equalsIgnoreCase("none")) {
             return;
         }
         for (String item : items) {
@@ -38,7 +39,7 @@ public class JoinFunctions {
             final ItemStack itemStack = new ItemStack(material, numberOfItems);
             final ItemMeta meta = itemStack.getItemMeta();
 
-            meta.setDisplayName(name);
+            meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
             meta.setLore(formatLore);
             itemStack.setItemMeta(meta);
             user.getInventory().setItem(slot, itemStack);

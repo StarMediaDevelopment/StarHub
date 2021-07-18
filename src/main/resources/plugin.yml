@@ -10,3 +10,5 @@ description: A hub core
 commands:
   spawn:
     description: spawn command
+  open:
+    description: command used to open GUIs

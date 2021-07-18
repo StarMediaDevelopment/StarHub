@@ -34,7 +34,7 @@ public class JoinEvent implements Listener {
 
             return;
         }
-
+        join.giveItems(player,"Join.Items");
         if (player.hasPermission("FireCraft.isStaff")) {
             event.setJoinMessage(main.getConfig().getString("Join.Messages.StaffJoinMessage"));
             msg.sendMessages(player, "Join.Messages.StaffMOTD");

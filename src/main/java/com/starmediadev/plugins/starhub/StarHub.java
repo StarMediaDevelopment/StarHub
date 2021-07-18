@@ -1,9 +1,12 @@
 package com.starmediadev.plugins.starhub;
 
-import com.starmediadev.plugins.starhub.commands.SpawnCommands;
+import com.starmediadev.plugins.starhub.commands.Commands;
+import com.starmediadev.plugins.starhub.commands.GUICommands;
 import com.starmediadev.plugins.starhub.events.DamageEvent;
+import com.starmediadev.plugins.starhub.events.InventoryClickListener;
 import com.starmediadev.plugins.starhub.events.JoinEvent;
 import com.starmediadev.plugins.starhub.events.LeaveEvent;
+import com.starmediadev.plugins.starhub.guis.GuiOpeners;
 import com.starmediadev.plugins.starhub.util.Util;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -19,7 +22,10 @@ public final class StarHub extends JavaPlugin {
         new DamageEvent(this);
         new JoinEvent(this);
         new LeaveEvent(this);
-        new SpawnCommands(this);
+        new Commands(this);
+        new GUICommands(this);
+        new GuiOpeners(this);
+        new InventoryClickListener(this);
 
     }
 

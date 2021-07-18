@@ -8,11 +8,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class SpawnCommands implements CommandExecutor {
+public class Commands implements CommandExecutor {
 
     private StarHub main;
 
-    public SpawnCommands(StarHub main) {
+    public Commands(StarHub main) {
         this.main = main;
         Bukkit.getPluginCommand("spawn").setExecutor(this);
     }

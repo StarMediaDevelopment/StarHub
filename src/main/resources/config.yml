@@ -1,4 +1,3 @@
-
 Spawn:
   #Place in which a player is teleported to after falling into the void.
   X: 0.0
@@ -38,6 +37,8 @@ Join:
   GameMode: "SURVIVAL"
   ClearInventory: false
   TeleportToSpawn: true
+  Items:
+    - "NETHER_STAR;&bServer Selector;4;&eOpen the server selector;1"
 
 
 FirstJoin:
@@ -52,10 +53,26 @@ FirstJoin:
   TeleportToSpawn: true
   ClearInventory: false
   Items:
-    - "DIAMOND_SWORD;&bStarter Sword;4;&cStarter sword for, &cyour journey.;1"
-    - "COOKED_BEEF;&bStarter Food;4;&cStarter food for, &cyour journey.;16"
+    - "DIAMOND_SWORD;&bStarter Sword;7;&cStarter sword for, &cyour journey.;1"
+    - "NETHER_STAR;&bServer Selector;4;&eOpen the server selector;1"
 
 
 Leave:
   Messages:
     PlayerLeaveMessage: "&e%player_name% has left the server."
+
+ClickEvents:
+  Items:
+    - "&bServer Selector;open games"
+
+GUIS:
+  GameSelector:
+    Opener: "games"
+    Size: 54
+    Title: "&bServer Menu"
+    Items:
+      - "&espawn;GRASS_BLOCK;20;&aTeleport to spawn!"
+      - "&eDoubles;STONE_SWORD;24;&cComing Soon!"
+    ClickEvents:
+      - "20;spawn"
+      - "24;help"
