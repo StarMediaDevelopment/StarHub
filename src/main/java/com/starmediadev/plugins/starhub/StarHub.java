@@ -1,5 +1,6 @@
 package com.starmediadev.plugins.starhub;
 
+import com.starmediadev.plugins.starhub.commands.SpawnCommands;
 import com.starmediadev.plugins.starhub.events.DamageEvent;
 import com.starmediadev.plugins.starhub.events.JoinEvent;
 import com.starmediadev.plugins.starhub.events.LeaveEvent;
@@ -18,6 +19,7 @@ public final class StarHub extends JavaPlugin {
         new DamageEvent(this);
         new JoinEvent(this);
         new LeaveEvent(this);
+        new SpawnCommands(this);
 
     }
 

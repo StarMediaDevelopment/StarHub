@@ -16,7 +16,6 @@ public class JoinEvent implements Listener {
     private MessageFunctions msg;
     private StarHub main;
     private JoinFunctions join;
-    Player player;
 
     public JoinEvent(StarHub main) {
         this.main = main;
@@ -27,11 +26,11 @@ public class JoinEvent implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        this.player = event.getPlayer();
+        Player player = event.getPlayer();
 
         if (!player.hasPlayedBefore()) {
             join.giveItems(player, "FirstJoin.Items");
-            playerJoin("FirstJoin");
+            playerJoin("FirstJoin", player);
 
             return;
         }
@@ -43,16 +42,16 @@ public class JoinEvent implements Listener {
         }
         //
         event.setJoinMessage(main.getConfig().getString("Join.Messages.PlayerJoinMessage"));
-        playerJoin("Join");
+        playerJoin("Join", player);
     }
 
 
-    public void playerJoin(String type) {
+    public void playerJoin(String type, Player player) {
         if (main.getConfig().getBoolean(type + ".TeleportToSpawn")) {
-            Location spawn = new Location(Bukkit.getWorld(main.getConfig().getString("VoidTeleport.Spawn.WORLD")),
-                    main.getConfig().getDouble("VoidTeleport.Spawn.X"), main.getConfig().getDouble("VoidTeleport.Spawn.Y"),
-                    main.getConfig().getDouble("VoidTeleport.Spawn.Z"), main.getConfig().getInt("VoidTeleport.Spawn.YAW"),
-                    main.getConfig().getInt("VoidTeleport.Spawn.PITCH"));
+            Location spawn = new Location(Bukkit.getWorld(main.getConfig().getString("Spawn.WORLD")),
+                    main.getConfig().getDouble("Spawn.X"), main.getConfig().getDouble("Spawn.Y"),
+                    main.getConfig().getDouble("Spawn.Z"), main.getConfig().getInt("Spawn.YAW"),
+                    main.getConfig().getInt("Spawn.PITCH"));
             player.teleport(spawn);
         }
         //

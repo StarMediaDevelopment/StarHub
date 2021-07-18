@@ -5,4 +5,8 @@ api-version: 1.17
 prefix: [ StarHub ]
 load: STARTUP
 authors: [ AloneMusk ]
-description: A hub core 
+description: A hub core
+
+commands:
+  spawn:
+    description: spawn command
