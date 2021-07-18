@@ -16,6 +16,7 @@ public class JoinEvent implements Listener {
     private MessageFunctions msg;
     private StarHub main;
     private JoinFunctions join;
+    Player player;
 
     public JoinEvent(StarHub main) {
         this.main = main;
@@ -26,30 +27,15 @@ public class JoinEvent implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        Player player = event.getPlayer();
+        this.player = event.getPlayer();
 
         if (!player.hasPlayedBefore()) {
-            join.giveItems(player);
+            join.giveItems(player, "FirstJoin.Items");
+            playerJoin("FirstJoin");
 
             return;
         }
 
-
-        join.giveItems(player);
-
-        if (main.getConfig().getBoolean("Join.TeleportToSpawn")) {
-            Location spawn = new Location(Bukkit.getWorld(main.getConfig().getString("VoidTeleport.Spawn.WORLD")),
-                    main.getConfig().getDouble("VoidTeleport.Spawn.X"), main.getConfig().getDouble("VoidTeleport.Spawn.Y"),
-                    main.getConfig().getDouble("VoidTeleport.Spawn.Z"), main.getConfig().getInt("VoidTeleport.Spawn.YAW"),
-                    main.getConfig().getInt("VoidTeleport.Spawn.PITCH"));
-            player.teleport(spawn);
-        }
-        //
-        player.setGameMode(GameMode.valueOf(main.getConfig().getString("Join.GameMode")));
-        if (main.getConfig().getBoolean("Join.ClearInventory")) {
-            player.getInventory().clear();
-        }
-        //
         if (player.hasPermission("FireCraft.isStaff")) {
             event.setJoinMessage(main.getConfig().getString("Join.Messages.StaffJoinMessage"));
             msg.sendMessages(player, "Join.Messages.StaffMOTD");
@@ -57,9 +43,27 @@ public class JoinEvent implements Listener {
         }
         //
         event.setJoinMessage(main.getConfig().getString("Join.Messages.PlayerJoinMessage"));
-        msg.sendMessages(player, "Join.Messages.MOTD");
-
+        playerJoin("Join");
     }
+
+
+    public void playerJoin(String type) {
+        if (main.getConfig().getBoolean(type + ".TeleportToSpawn")) {
+            Location spawn = new Location(Bukkit.getWorld(main.getConfig().getString("VoidTeleport.Spawn.WORLD")),
+                    main.getConfig().getDouble("VoidTeleport.Spawn.X"), main.getConfig().getDouble("VoidTeleport.Spawn.Y"),
+                    main.getConfig().getDouble("VoidTeleport.Spawn.Z"), main.getConfig().getInt("VoidTeleport.Spawn.YAW"),
+                    main.getConfig().getInt("VoidTeleport.Spawn.PITCH"));
+            player.teleport(spawn);
+        }
+        //
+        player.setGameMode(GameMode.valueOf(main.getConfig().getString(type +".GameMode")));
+        if (main.getConfig().getBoolean(type+ "ClearInventory")) {
+            player.getInventory().clear();
+        }
+        //
+        msg.sendMessages(player, type + ".Messages.MOTD");
+    }
+
 
 
 

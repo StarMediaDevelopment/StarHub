@@ -17,8 +17,11 @@ public class JoinFunctions {
         this.main = main;
     }
 
-    public void giveItems(Player user) {
-        List<String> items = main.getConfig().getStringList("Join.Items");
+    public void giveItems(Player user, String path) {
+        List<String> items = main.getConfig().getStringList(path);
+        if (items.get(0) == null) {
+            return;
+        }
         for (String item : items) {
             String[] giveItems = item.split(";");
             Material material = Material.valueOf(giveItems[0]);
@@ -29,8 +32,10 @@ public class JoinFunctions {
             for (String lore : lores) {
                 formatLore.add(org.bukkit.ChatColor.translateAlternateColorCodes('&', lore));
             }
+            int numberOfItems = Integer.parseInt(giveItems[4]);
 
-            final ItemStack itemStack = new ItemStack(material, 1);
+
+            final ItemStack itemStack = new ItemStack(material, numberOfItems);
             final ItemMeta meta = itemStack.getItemMeta();
 
             meta.setDisplayName(name);

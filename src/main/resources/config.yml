@@ -1,13 +1,12 @@
-VoidTeleport:
-  #Void teleport settings
-  Spawn:
-    #Place in which a player is teleported to after falling into the void.
-    X: 0.0
-    Y: 100.0
-    Z: 0.0
-    YAW: 90
-    PITCH: 0
-    WORLD: "world"
+
+Spawn:
+  #Place in which a player is teleported to after falling into the void.
+  X: 0.0
+  Y: 100.0
+  Z: 0.0
+  YAW: 90
+  PITCH: 0
+  WORLD: "world"
   EnabledWorlds:
     #List of worlds where VoidTP works.
     - "world"
@@ -17,52 +16,46 @@ VoidTeleport:
 
 Scoreboard:
   Lines:
-    - ""
-    - ""
-    - ""
-    - ""
-    - ""
+    - "Ello There"
+    - "&bSup"
+    - "&cChange this"
+    - "&bFirecraft"
+    - "&cNice"
 
 Join:
   Messages:
     MOTD:
-      - ""
-      - ""
-      - ""
+      - "&b================="
+      - "&cWelcome &r%player_name%"
+      - "&b================="
     StaffMOTD:
-      - ""
-      - ""
-      - ""
+      - "&b================="
+      - "&c Sup Staff Member"
+      - "&c================="
 
-    StaffJoinMessage: ""
-    PlayerJoinMessage: ""
+    StaffJoinMessage: "&cA staff member has joined the server!"
+    PlayerJoinMessage: "&bA player has joined the server!"
   GameMode: "SURVIVAL"
   ClearInventory: false
   TeleportToSpawn: true
-  Items:
-    - ""
 
 
 FirstJoin:
   Messages:
     MOTD:
-      - ""
-      - ""
-      - ""
-    StaffMOTD:
-      - ""
-      - ""
-      - ""
+      - "&b================="
+      - "&cWelcome &r%player_name%"
+      - "&b================="
 
-    StaffJoinMessage: ""
-    PlayerJoinMessage: ""
+    PlayerJoinMessage: "&c%player_name% has joined us for the first time!"
   GameMode: "SURVIVAL"
-  ClearInventory: false
   TeleportToSpawn: true
+  ClearInventory: false
   Items:
-    - ""
+    - "DIAMOND_SWORD;&bStarter Sword;4;&cStarter sword for, &cyour journey.;1"
+    - "COOKED_BEEF;&bStarter Food;4;&cStarter food for, &cyour journey.;16"
 
 
 Leave:
   Messages:
-    PlayerLeaveMessage: ""
+    PlayerLeaveMessage: "&e%player_name% has left the server."

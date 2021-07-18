@@ -29,10 +29,10 @@ public class DamageEvent implements Listener {
                     Bukkit.getScheduler().runTaskLater(main, new Runnable() {
                         @Override
                         public void run() {
-                            Location spawn = new Location(Bukkit.getWorld(main.getConfig().getString("VoidTeleport.Spawn.WORLD")),
-                                    main.getConfig().getDouble("VoidTeleport.Spawn.X"), main.getConfig().getDouble("VoidTeleport.Spawn.Y"),
-                                    main.getConfig().getDouble("VoidTeleport.Spawn.Z"), main.getConfig().getInt("VoidTeleport.Spawn.YAW"),
-                                    main.getConfig().getInt("VoidTeleport.Spawn.PITCH"));
+                            Location spawn = new Location(Bukkit.getWorld(main.getConfig().getString("Spawn.WORLD")),
+                                    main.getConfig().getDouble("Spawn.X"), main.getConfig().getDouble("Spawn.Y"),
+                                    main.getConfig().getDouble("Spawn.Z"), main.getConfig().getInt("Spawn.YAW"),
+                                    main.getConfig().getInt("Spawn.PITCH"));
                             player.teleport(spawn);
                             player.setFallDistance(0);
                             player.setHealth(20.0);
